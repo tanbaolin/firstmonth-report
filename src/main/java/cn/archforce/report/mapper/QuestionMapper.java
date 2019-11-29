@@ -3,6 +3,7 @@ package cn.archforce.report.mapper;
 import cn.archforce.report.dto.QuestionDTO;
 import cn.archforce.report.model.Question;
 import org.apache.ibatis.annotations.Mapper;
+import org.apache.ibatis.annotations.Param;
 
 import java.util.List;
 
@@ -18,5 +19,7 @@ public interface QuestionMapper {
 
     void create(Question question);
 
-    List<Question> list();
+    List<Question> list(@Param(value = "offset") Integer offset, @Param(value = "size") Integer size);
+
+    Integer count();
 }
